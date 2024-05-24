@@ -8,10 +8,22 @@ const List = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setList([...List, { Title, Description }]);
-    console.log(List);
+    // console.log(List);
     seTitle("");
     setDescription("");
   };
+  let TaskRender = <h1>No Tast Render</h1>;
+  TaskRender = List.map((t, i) => {
+    return (
+      <div className="">
+        <h1 className="">
+          {t.Title}
+          {t.Description}
+        </h1>
+      </div>
+    );
+  });
+
   return (
     <>
       <div className=" bg-slate-700 text-white text-center font-bold text-5xl p-10">
@@ -39,7 +51,7 @@ const List = () => {
           </button>
         </form>
         <div className="bg-black h-1 mt-5"></div>
-        <div className=""></div>
+        <div className="">{TaskRender}</div>
       </div>
     </>
   );
