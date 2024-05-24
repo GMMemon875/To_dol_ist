@@ -12,17 +12,39 @@ const List = () => {
     seTitle("");
     setDescription("");
   };
-  let TaskRender = <h1>No Tast Render</h1>;
-  TaskRender = List.map((t, i) => {
-    return (
-      <div className="">
-        <h1 className="">
-          {t.Title}
-          {t.Description}
-        </h1>
-      </div>
-    );
-  });
+
+  const deleteHandelar = (i) => {
+    const CopyTask = [...List];
+    CopyTask.splice(i, 1);
+    setList(CopyTask);
+  };
+  let TaskRender = (
+    <h1 className="justify-between text-2xl p-10 text-white bg-slate-500  ">
+      No Tast Render
+    </h1>
+  );
+  if (List.length > 0) {
+    TaskRender = List.map((t, i) => {
+      return (
+        <>
+          <div key={i} className="bg-slate-500">
+            <div className="flex justify-between text-2xl mr-11 ml-11 mt-2 text-white ">
+              <h1>{t.Title}</h1>
+              <h3>{t.Description}</h3>
+              <button
+                onClick={() => {
+                  deleteHandelar(i);
+                }}
+                className=" bg-orange-600 w-28  text-wrap p-2 rounded-md"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </>
+      );
+    });
+  }
 
   return (
     <>
