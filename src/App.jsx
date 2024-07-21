@@ -4,7 +4,7 @@ import List from "./componanats/List";
 const App = () => {
   return (
     <div>
-      <List></List>
+      <List></List>    
     </div>
   );
 };
