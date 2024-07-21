@@ -10,9 +10,10 @@ const List = () => {
     //function SubmitHandler ek Arrow function chalaie gi us men ek event chalega (e) ke neme se
     e.preventDefault(); // Form ke submit hone par page reload ko rokne ke liye
     setList([...List, { Title, Description }]); // ye ek Spread opreater he jo 2 aaray ko ek dosre se melata he yaha per Title ko Our Description ko ek dosre se malaie ga
-    // console.log(List);
-    // seTitle("");
-    // setDescription("");
+
+    seTitle("");
+    setDescription("");
+    console.log(List);
   };
 
   // uper 2no ke list create ho gaie ab hm jo list baanaie he us ko dalte karni ka fucntio create karengi ham ni list name ka ek array banaya he ab us ko use karke delete karengi gen
@@ -23,13 +24,15 @@ const List = () => {
     CopyTask.splice(i, 1); // fer us ko splice karengi splice matlb remove karengi
     setList(CopyTask); // fer us copyTask ko Setlist men Add karengi
   };
-  let TaskRender = (
-    <h1 className="justify-between text-2xl p-10 text-white bg-slate-500  ">
-      No Tast Render
-    </h1>
-  );
+  let TaskRender = // TaskRander ye todo List ke neche show hoga
+    (
+      <h1 className="justify-between text-2xl p-10 text-white bg-slate-500  ">
+        No Tast Render
+      </h1>
+    );
   if (List.length > 0) {
     TaskRender = List.map((t, i) => {
+      // taskReander men hm jo be list men se ham map kare gi wo add hoga ab jo object
       return (
         <>
           <div key={i} className="bg-slate-500">
